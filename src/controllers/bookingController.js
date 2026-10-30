@@ -38,3 +38,14 @@ const remove = async (req, res, next) => {
 };
 
 module.exports = { create, getOne, update, remove };
+
+const listByUser = async (req, res, next) => {
+  try {
+    const bookings = await bookingService.getUserBookings(Number(req.params.id));
+    return res.status(200).json(bookings);
+  } catch (err) {
+    next(err);
+  }
+};
+
+module.exports = { create, getOne, update, remove, listByUser };

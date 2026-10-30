@@ -7,3 +7,7 @@ router.use("/auth", authRouter);
 // Monta aquí tus routers de los hitos 2, 3 y 4
 
 module.exports = router;
+
+const usersRouter = require("./users");
+
+router.use("/users", usersRouter);

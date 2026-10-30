@@ -65,3 +65,18 @@ module.exports = {
   updateBooking,
   deleteBooking,
 };
+
+const getUserBookings = async (userId) => {
+  return prisma.booking.findMany({
+    where: { userId },
+    include: { schedule: true },
+  });
+};
+
+module.exports = {
+  createBooking,
+  getBookingById,
+  updateBooking,
+  deleteBooking,
+  getUserBookings,
+};
